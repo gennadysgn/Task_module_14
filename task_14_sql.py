@@ -19,9 +19,7 @@ for i in range(1, 11):
                    (f"User{i}", f"example{i}@gmail.com", f"{i * 10}", f"{1000}"))
 
 # Обновление balance у каждой 2-ой записи начиная с 1-ой на 500:
-for i in range(1, 11):
-    if i % 2 != 0:
-        cursor.execute("UPDATE Users SET balance = ? WHERE id = ?", (500, f"{i}"))
+cursor.execute("UPDATE Users SET balance = 500 WHERE id % 2 != 0")
 
 # Удаление каждой 3-й записи в таблице начиная с 1-ой:
 i = 1
